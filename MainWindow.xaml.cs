@@ -85,11 +85,13 @@ namespace Granblue_Fantasy___Spark_Calculator
             }
 
             //if all 3 checks are true, update total draw count
-            if ((checkCrystals) && (checkDraws))
+            if ((checkCrystals) && (checkDraws) && (check10Draws))
             {
-                total = "Total draws: " + (crystals / 300 + draws).ToString();
+                //total draws calculation
+                total = "Total draws: " + (crystals / 300 + draws + draws10*10).ToString();
                 NumberOfTotalDraws.Content = total;
             }
+            //if not, reset text to default
             else
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
@@ -141,11 +143,71 @@ namespace Granblue_Fantasy___Spark_Calculator
             }
 
             //if all 3 checks are true, update total draw count
-            if ((checkCrystals) && (checkDraws))
+            if ((checkCrystals) && (checkDraws) && (check10Draws))
             {
-                total = "Total draws: " + (crystals / 300 + draws).ToString();
+                //total draws calculation
+                total = "Total draws: " + (crystals / 300 + draws + draws10 * 10).ToString();
                 NumberOfTotalDraws.Content = total;
             }
+            //if not, reset text to default
+            else
+            {
+                NumberOfTotalDraws.Content = "Total draws: ";
+            }
+        }
+
+        /***************************************/
+        //Number of 10-draws text change instance
+        /***************************************/
+        private void NumberOf10Draws_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            check10Draws = false;
+            int tempInt = 0;
+            //if text is empty
+            if (NumberOf10Draws.Text == "")
+            {
+                NumberOfTotalDraws.Content = "Total draws: ";
+                Draws10Warning.Content = "";
+                //set 10-draws to 0
+                draws10 = 0;
+                check10Draws = true;
+            }
+            //if not
+            else
+            {
+                //check if stirng is an int
+                if (int.TryParse(NumberOf10Draws.Text, out tempInt))
+                {
+                    //if int is between 0 and 1000
+                    if ((tempInt >= 0) && (tempInt <= 1000))
+                    {
+                        draws10 = tempInt;
+                        Draws10Warning.Content = "";
+                        check10Draws = true;
+                    }
+                    //if outside of bounds, display error
+                    else
+                    {
+                        Draws10Warning.Content = "Invalid # of draws! (0 to 1,000)";
+                    }
+
+
+                }
+                //else, show warning that input is not a string
+                else
+                {
+                    Draws10Warning.Content = "Must be an integer!";
+                }
+            }
+
+            //if all 3 checks are true, update total draw count
+            if ((checkCrystals) && (checkDraws) && (check10Draws))
+            {
+                //total draws calculation
+                total = "Total draws: " + (crystals / 300 + draws + draws10 * 10).ToString();
+                NumberOfTotalDraws.Content = total;
+            }
+            //if not, reset text to default
             else
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
