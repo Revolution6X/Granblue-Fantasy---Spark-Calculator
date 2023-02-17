@@ -18,25 +18,39 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+
         <Image Source="/Images/10Ticket.jpg" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" 
                  Margin="25,5,25,5" Grid.Row="3"/>
-        
+
         <Label Grid.Column="1" Content="Number Of Crystals" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="1" 
                VerticalAlignment="Top"/>
-
         <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Name="NumberOfCrystals"                 
-                 Text="{Binding Path=CrystalsValue}" VerticalAlignment="Center" 
-                 Width="172" Height="29" FontFamily="Arial" FontSize="18" 
-                 Foreground="LightGray"/>
+                 VerticalAlignment="Center" 
+                 Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
 
 
         <Image Source="/Images/Ticket.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" 
                Margin="25,5,25,5" Grid.Row="2"/>
 
+        <Label Grid.Column="1" Content="Number Of Draws" HorizontalAlignment="Center" Margin="0,14,0,0" Grid.Row="2" 
+            VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" x:Name="NumberOfCrystals_Copy"                 
+            VerticalAlignment="Center" 
+            Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
+
 
         <Image Source="/Images/Crystal.jpg" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" 
                Margin="25,5,25,5" Grid.Row="1" />
-        
+
+        <Label Grid.Column="1" Content="Number Of 10-Part Draws" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="3" 
+            VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" x:Name="NumberOfCrystals_Copy1"                 
+            VerticalAlignment="Center" 
+            Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
+
+
+
+
 
 
 
