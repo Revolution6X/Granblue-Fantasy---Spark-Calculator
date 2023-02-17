@@ -22,20 +22,25 @@ namespace Granblue_Fantasy___Spark_Calculator
     {
         //holds the 3 text field values for calculation
         public int crystals = 0;
-        public int draw = 0;
-        public int draw10 = 0;
+        public int draws = 0;
+        public int draws10 = 0;
         public string total = "";
 
         //hold the verficaiton value of the 3 text field
-        public bool checkCrystals = false;
-        public bool checkDraws = false;
-        public bool check10Draws = false;
+        public bool checkCrystals = true;
+        public bool checkDraws = true;
+        public bool check10Draws = true;
 
         public MainWindow()
         {
             InitializeComponent();
+            //resets warning to blank
+            CrystalsWarning.Content = "";
+            DrawsWarning.Content = "";
+            Draws10Warning.Content = "";
         }
 
+        /***************************************/
         //Number of crystals text change instance
         /***************************************/
         private void NumberOfCrystals_TextChanged(object sender, TextChangedEventArgs e)
@@ -47,6 +52,9 @@ namespace Granblue_Fantasy___Spark_Calculator
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
                 CrystalsWarning.Content = "";
+                //set crystals to 0
+                crystals = 0;
+                checkCrystals = true;
             }
             //if not
             else
@@ -77,9 +85,9 @@ namespace Granblue_Fantasy___Spark_Calculator
             }
 
             //if all 3 checks are true, update total draw count
-            if (checkCrystals)
+            if ((checkCrystals) && (checkDraws))
             {
-                total = "Total draws: " + (crystals / 300).ToString();
+                total = "Total draws: " + (crystals / 300 + draws).ToString();
                 NumberOfTotalDraws.Content = total;
             }
             else
@@ -88,9 +96,60 @@ namespace Granblue_Fantasy___Spark_Calculator
             }
         }
 
+        /***************************************/
+        //Number of draws text change instance
+        /***************************************/
+        private void NumberOfDraws_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            checkDraws = false;
+            int tempInt = 0;
+            //if text is empty
+            if (NumberOfDraws.Text == "")
+            {
+                NumberOfTotalDraws.Content = "Total draws: ";
+                DrawsWarning.Content = "";
+                //set draws to 0
+                draws = 0;
+                checkDraws = true;
+            }
+            //if not
+            else
+            {
+                //check if stirng is an int
+                if (int.TryParse(NumberOfDraws.Text, out tempInt))
+                {
+                    //if int is between 0 and 100,000
+                    if ((tempInt >= 0) && (tempInt <= 100000))
+                    {
+                        draws = tempInt;
+                        DrawsWarning.Content = "";
+                        checkDraws = true;
+                    }
+                    //if outside of bounds, display error
+                    else
+                    {
+                        DrawsWarning.Content = "Invalid # of draws! (0 to 100,000)";
+                    }
 
 
+                }
+                //else, show warning that input is not a string
+                else
+                {
+                    DrawsWarning.Content = "Must be an integer!";
+                }
+            }
 
-        //Number Of Crystals 
+            //if all 3 checks are true, update total draw count
+            if ((checkCrystals) && (checkDraws))
+            {
+                total = "Total draws: " + (crystals / 300 + draws).ToString();
+                NumberOfTotalDraws.Content = total;
+            }
+            else
+            {
+                NumberOfTotalDraws.Content = "Total draws: ";
+            }
+        }
     }
 }
