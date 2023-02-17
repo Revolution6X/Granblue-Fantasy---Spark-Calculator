@@ -6,14 +6,17 @@
     <RootNamespace>Granblue_Fantasy___Spark_Calculator</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	  <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="10Ticket.jpg" />
+    <None Remove="a.ico" />
     <None Remove="Crystal.jpg" />
     <None Remove="Images\10Ticket.jpg" />
     <None Remove="Images\Crystal.jpg" />
     <None Remove="Images\Ticket.png" />
+    <None Remove="Ticket.ico" />
     <None Remove="Ticket.png" />
   </ItemGroup>
 
@@ -21,6 +24,7 @@
     <Resource Include="Images\10Ticket.jpg" />
     <Resource Include="Images\Crystal.jpg" />
     <Resource Include="Images\Ticket.png" />
+    <Resource Include="Ticket.ico" />
   </ItemGroup>
 
 </Project>
