@@ -24,7 +24,7 @@ namespace Granblue_Fantasy___Spark_Calculator
         public int crystals = 0;
         public int draws = 0;
         public int draws10 = 0;
-        public string total = "";
+        public int total = 0;
 
         //hold the verficaiton value of the 3 text field
         public bool checkCrystals = true;
@@ -51,6 +51,7 @@ namespace Granblue_Fantasy___Spark_Calculator
             if (NumberOfCrystals.Text == "")
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
                 CrystalsWarning.Content = "";
                 //set crystals to 0
                 crystals = 0;
@@ -88,13 +89,16 @@ namespace Granblue_Fantasy___Spark_Calculator
             if ((checkCrystals) && (checkDraws) && (check10Draws))
             {
                 //total draws calculation
-                total = "Total draws: " + (crystals / 300 + draws + draws10*10).ToString();
-                NumberOfTotalDraws.Content = total;
+                total = crystals / 300 + draws + draws10*10;
+                NumberOfTotalDraws.Content = "Total draws: " + total.ToString();
+                //total sparks calculation
+                NumberOfTotalSparks.Content = "Total sparks: " + (total/300).ToString();
             }
             //if not, reset text to default
             else
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
             }
         }
 
@@ -109,6 +113,7 @@ namespace Granblue_Fantasy___Spark_Calculator
             if (NumberOfDraws.Text == "")
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
                 DrawsWarning.Content = "";
                 //set draws to 0
                 draws = 0;
@@ -146,13 +151,16 @@ namespace Granblue_Fantasy___Spark_Calculator
             if ((checkCrystals) && (checkDraws) && (check10Draws))
             {
                 //total draws calculation
-                total = "Total draws: " + (crystals / 300 + draws + draws10 * 10).ToString();
-                NumberOfTotalDraws.Content = total;
+                total = crystals / 300 + draws + draws10 * 10;
+                NumberOfTotalDraws.Content = "Total draws: " + total.ToString();
+                //total sparks calculation
+                NumberOfTotalSparks.Content = "Total sparks: " + (total / 300).ToString();
             }
             //if not, reset text to default
             else
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
             }
         }
 
@@ -167,6 +175,7 @@ namespace Granblue_Fantasy___Spark_Calculator
             if (NumberOf10Draws.Text == "")
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
                 Draws10Warning.Content = "";
                 //set 10-draws to 0
                 draws10 = 0;
@@ -204,13 +213,16 @@ namespace Granblue_Fantasy___Spark_Calculator
             if ((checkCrystals) && (checkDraws) && (check10Draws))
             {
                 //total draws calculation
-                total = "Total draws: " + (crystals / 300 + draws + draws10 * 10).ToString();
-                NumberOfTotalDraws.Content = total;
+                total = crystals / 300 + draws + draws10 * 10;
+                NumberOfTotalDraws.Content = "Total draws: " + total.ToString();
+                //total sparks calculation
+                NumberOfTotalSparks.Content = "Total sparks: " + (total / 300).ToString();
             }
             //if not, reset text to default
             else
             {
                 NumberOfTotalDraws.Content = "Total draws: ";
+                NumberOfTotalSparks.Content = "Total sparks: ";
             }
         }
     }

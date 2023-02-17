@@ -66,13 +66,10 @@
 
 
 
-            <Label Grid.Column="1" HorizontalAlignment="Left" Margin="42,0,0,0" Grid.Row="4"
-                   Name="NumberOfTotalDraws" Content="Total draws:" VerticalAlignment="Center"/>
-
-
-
-
-
+            <Label HorizontalAlignment="Left" Margin="73,17,0,0" Grid.Row="4"
+                   Name="NumberOfTotalDraws" Content="Total draws:" VerticalAlignment="Top" Background="#FFA6E09B" FontSize="20" FontFamily="Arial Black" Grid.ColumnSpan="2" Foreground="Black"/>
+            <Label HorizontalAlignment="Left" Margin="73,54,0,0" Grid.Row="4"
+                   Name="NumberOfTotalSparks" Content="Total sparks:" VerticalAlignment="Top" Background="#FFF7C377" FontSize="20" FontFamily="Arial Black" Grid.ColumnSpan="2" Foreground="Black"/>
 
 
         </Grid>
