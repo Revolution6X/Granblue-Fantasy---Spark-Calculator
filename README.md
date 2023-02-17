@@ -1,0 +1,1 @@
+# Granblue Fantasy - Spark Calculator
