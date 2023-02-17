@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:Granblue_Fantasy___Spark_Calculator"
         mc:Ignorable="d"
         Title="GBF Spark Calculator" Height="500" Width="400" ResizeMode="NoResize">
+    <!--Background color gradient-->
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="white" Offset="0.0"/>
+                <GradientStop Color="LightBlue" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Border.Background>
+    
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1.75*" />
@@ -26,7 +36,9 @@
                VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Name="NumberOfCrystals"                 
                  VerticalAlignment="Center" 
-                 Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
+                 Width="172" Height="29" FontFamily="Arial" FontSize="18" TextChanged="NumberOfCrystals_TextChanged"/>
+        <Label Grid.Column="1" Name="CrystalsWarning" HorizontalAlignment="Center" Margin="0,68,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" Foreground="red"/>
 
 
         <Image Source="/Images/Ticket.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" 
@@ -34,7 +46,7 @@
 
         <Label Grid.Column="1" Content="Number Of Draws" HorizontalAlignment="Center" Margin="0,14,0,0" Grid.Row="2" 
             VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" x:Name="NumberOfCrystals_Copy"                 
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" x:Name="NumberOfDraws"                 
             VerticalAlignment="Center" 
             Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
 
@@ -44,9 +56,14 @@
 
         <Label Grid.Column="1" Content="Number Of 10-Part Draws" HorizontalAlignment="Center" Margin="0,13,0,0" Grid.Row="3" 
             VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" x:Name="NumberOfCrystals_Copy1"                 
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" x:Name="NumberOf10Draws"                 
             VerticalAlignment="Center" 
             Width="172" Height="29" FontFamily="Arial" FontSize="18"/>
+
+
+
+        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="42,0,0,0" Grid.Row="4"
+                   Name="NumberOfTotalDraws" Content="Total draws:" VerticalAlignment="Center"/>
 
 
 
@@ -55,4 +72,5 @@
 
 
     </Grid>
+    </Border>
 </Window>
